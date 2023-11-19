@@ -16,8 +16,8 @@ export const Modal = ({ onClick, largeImageUrl }) => {
     };
   }, [onClick]);
 
-  const onOverlayClick = e => {
-    if (e.currentTarget === e.target) {
+  const onOverlayClick = evt => {
+    if (evt.currentTarget === evt.target) {
       onClick();
     }
   };
