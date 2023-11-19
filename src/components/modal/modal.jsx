@@ -3,18 +3,18 @@ import { ModalWindow } from './modal-styled';
 import { useEffect } from 'react';
 
 export const Modal = ({ onClick, largeImageUrl }) => {
-  const escFunction = event => {
-    if (event.key === 'Escape') {
-      onClick();
-    }
-  };
-
   useEffect(() => {
+    const escFunction = event => {
+      if (event.key === 'Escape') {
+        onClick();
+      }
+    };
+
     document.addEventListener('keydown', escFunction, false);
     return () => {
       document.removeEventListener('keydown', escFunction, false);
     };
-  }, []);
+  }, [onClick]);
 
   const onOverlayClick = e => {
     if (e.currentTarget === e.target) {
